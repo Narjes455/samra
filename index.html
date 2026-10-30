@@ -27,7 +27,8 @@
   color-scheme:light;
 }
 *{box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.7}
+img{max-width:100%}
 .g{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .wrap{max-width:1160px;margin:0 auto}
 a{color:var(--deep)}
@@ -264,7 +265,56 @@ button.pchip[data-mv]{cursor:pointer} button.pchip[data-mv]:hover{box-shadow:ins
 .stats div:nth-child(3){background:var(--mint);color:var(--mint-ink)}
 .stats b{font-family:var(--display);font-size:2.2rem;line-height:1.1;font-variant-numeric:tabular-nums}
 @media (max-width:480px){.stats{grid-template-columns:1fr}}
+[hidden]{display:none!important}
 #confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+.dtitle{font-size:clamp(1.8rem,4.5vw,2.6rem)}
+.dgrid{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;padding-bottom:40px}
+@media (max-width:880px){.dgrid{grid-template-columns:1fr}}
+.dmain{display:grid;gap:12px;min-width:0}
+.dstatus{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:baseline;justify-content:space-between}
+.dstatus .q{margin:0}
+.hint{font-family:var(--display);font-size:clamp(1.3rem,3.4vw,2rem);color:var(--deep);display:flex;flex-wrap:wrap;gap:6px 0;align-items:baseline;direction:ltr;justify-content:center}
+.hint .hw{white-space:nowrap;letter-spacing:.06em}.hint .hgap{width:1.2em}.hint .hn{font-family:var(--body);font-size:.9rem;color:var(--muted);margin-inline-start:10px}
+.paper{position:relative;background:#fffdf8;border-radius:22px;box-shadow:0 18px 44px -26px rgba(36,54,46,.5),inset 0 0 0 2px var(--line);overflow:hidden;aspect-ratio:1;width:100%;max-width:min(100%,70vh);margin-inline:auto}
+.paper canvas{display:block;width:100%;height:100%;max-width:100%;touch-action:none;cursor:crosshair}
+#pv>div{grid-template-columns:minmax(0,1fr)}
+.dmain{grid-template-columns:minmax(0,1fr)}
+.dover.slim{inset:auto 0 0 0;padding:14px 18px;background:rgba(251,252,250,.95);box-shadow:0 -10px 30px -18px rgba(36,54,46,.4)}
+.dover.slim .ans{font-size:clamp(1.5rem,4vw,2.2rem)}
+.dover{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;text-align:center;gap:10px;padding:20px;background:rgba(251,252,250,.93);animation:fade .3s}
+.dside{background:var(--card);border-radius:22px;padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.dside h3{font-size:1.2rem}
+.dsc{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.dsc li{display:flex;justify-content:space-between;gap:8px;padding:8px 12px;border-radius:12px;background:var(--bg2);font-variant-numeric:tabular-nums;transition:background .3s}
+.dsc li span{min-width:0;overflow-wrap:anywhere}
+.dsc li.drawing{background:var(--tile);color:var(--tile-ink)}.dsc li.solved{background:var(--mint);color:var(--mint-ink)}
+.dfeed{list-style:none;margin:0;padding:0;display:grid;gap:4px;max-height:280px;overflow:auto;font-size:.95rem}
+.dfeed li{overflow-wrap:anywhere;animation:up .3s}.dfeed li.ok{color:var(--ok);font-weight:700}
+.podium{list-style:none;margin:0;padding:0;display:grid;gap:6px;min-width:min(280px,70vw)}
+.podium li{display:flex;justify-content:space-between;gap:16px;background:var(--card);padding:8px 14px;border-radius:12px;font-size:1.1rem}
+.wopts{display:grid;gap:10px}
+.wopt{background:var(--card);color:var(--ink);font-family:var(--display);font-size:1.6rem;padding:14px;border-radius:16px;box-shadow:0 4px 0 var(--tile-sh);display:grid;gap:2px;transition:transform .15s}
+.wopt:hover{transform:translateY(-2px)}.wopt small{font-family:var(--body);font-size:.85rem;color:var(--muted)}
+.dword{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;justify-content:center;background:var(--tile);color:var(--tile-ink);border-radius:16px;padding:10px 14px;text-align:center}
+.dword b{font-family:var(--display);font-size:2rem}.dword small{opacity:.75}
+.tools{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center}
+.sw{width:34px;height:34px;border-radius:50%;box-shadow:inset 0 0 0 2px rgba(36,54,46,.18)}
+.sw.er{background-image:linear-gradient(135deg,transparent 45%,#d9534f 45%,#d9534f 55%,transparent 55%)!important}
+.sw[aria-pressed="true"],.sz[aria-pressed="true"]{outline:3px solid var(--deep);outline-offset:2px}
+.sz{width:40px;height:40px;border-radius:12px;background:var(--card);display:grid;place-items:center}
+.sz i{display:block;border-radius:50%;background:var(--ink)}
+.guess{display:flex;gap:8px}
+.guess input{flex:1;min-width:0;font:inherit;font-size:1.2rem;padding:12px 14px;border-radius:14px;border:2px solid var(--line);background:var(--card);color:var(--ink)}
+.guess input:focus{border-color:var(--deep);outline:none}
+.gfb{min-height:1.6em;text-align:center;color:var(--muted);font-weight:700}.gfb.close{color:#c0692c;animation:bump .4s}
+.checks{list-style:none;margin:0;padding:16px 18px;display:grid;gap:6px;background:var(--card);border-radius:18px}
+.checks li::before{content:"✓";color:var(--ok);font-weight:700;margin-inline-end:8px}
+.dsteps{margin-bottom:4px}
+.drawsec{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}
+@media (max-width:820px){.drawsec{grid-template-columns:1fr}}
+.newpill{display:inline-block;background:var(--a);color:var(--a-ink);font-size:.8rem;font-weight:700;padding:1px 10px;border-radius:999px;vertical-align:middle}
+.banner{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between;background:var(--lav);color:var(--lav-ink);border-radius:18px;padding:12px 16px}
+
 .av{width:24px;height:24px;border-radius:50%;display:inline-grid;place-items:center;background:var(--tile);color:var(--tile-ink);font-size:.8rem;font-family:var(--display)}
 .av.big-av{width:64px;height:64px;font-size:1.8rem;flex:none}
 @media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;animation:none!important}}
@@ -488,7 +538,9 @@ function fbInit(){
     try{
       if(!firebase.apps.length)firebase.initializeApp(cfg);
       const cred=firebase.auth().currentUser||(await new Promise(res=>{const un=firebase.auth().onAuthStateChanged(u=>{un();res(u)})}))||(await firebase.auth().signInAnonymously()).user;
-      FB.uid=cred.uid;FB.db=firebase.database();return FB;
+      FB.uid=cred.uid;FB.db=firebase.database();
+      FB.db.ref(".info/serverTimeOffset").on("value",s=>{FB.off=s.val()||0});
+      return FB;
     }catch(e){console.warn("Firebase",e);return null}
   })();
   return FB.ready;
@@ -507,7 +559,7 @@ function accountPill(){
 function header(links){
   return `${SADU}<div class="g"><div class="wrap"><header class="top">
     <a class="logo" href="#home"><i aria-hidden="true"></i>${L("سَمرة","Samra")}</a>
-    <nav class="nav">${links?`<a class="l" href="#how">${L("طريقة اللعب","How to play")}</a><a class="l" href="#cats">${L("الفئات","Categories")}</a><a class="l" href="#cards">${L("الأوراق","Cards")}</a><a class="l" href="#faq">${L("أسئلة شائعة","FAQ")}</a>`:""}
+    <nav class="nav">${links?`<a class="l" href="#how">${L("طريقة اللعب","How to play")}</a><a class="l" href="#cats">${L("الفئات","Categories")}</a><a class="l" href="#draw-game">${L("ارسمها","Draw It")}</a><a class="l" href="#cards">${L("الأوراق","Cards")}</a><a class="l" href="#faq">${L("أسئلة شائعة","FAQ")}</a>`:""}
       <button class="pill" id="langbtn" aria-label="${L("Switch to English","التحويل للعربية")}">${L("EN","عربي")}</button>
       <a class="pill acctpill" href="#account">${L("ملفي","Profile")}</a>
       ${links?`<a class="btn sm" href="#setup">${L("ابدأ اللعب","Play now")}</a>`:""}
@@ -522,6 +574,25 @@ function bindHeader(){
 }
 
 /* ---------- الرئيسية ---------- */
+function demoSketch(){
+  const cv=document.getElementById("demo-cv");if(!cv)return;
+  const ell=(cx,cy,rx,ry,a0=0,a1=6.29,n=40)=>Array.from({length:n+1},(_,i)=>{const a=a0+(a1-a0)*i/n;return[Math.round(cx+rx*Math.cos(a)),Math.round(cy+ry*Math.sin(a))]});
+  const wave=(x,y0,y1)=>Array.from({length:21},(_,i)=>{const y=y0+(y1-y0)*i/20;return[Math.round(x+28*Math.sin(i/20*Math.PI*2)),Math.round(y)]});
+  const S=[
+    {c:PALETTE[7],w:22,pts:ell(500,455,165,26)},
+    {c:PALETTE[0],w:10,pts:ell(500,450,200,40)},
+    {c:PALETTE[0],w:10,pts:[[300,450],[318,600],[350,700],[410,760],[590,760],[650,700],[682,600],[700,450]]},
+    {c:PALETTE[0],w:10,pts:ell(500,800,300,48)},
+    {c:PALETTE[5],w:8,pts:wave(420,390,200)},{c:PALETTE[5],w:8,pts:wave(500,380,170)},{c:PALETTE[5],w:8,pts:wave(580,390,200)},
+    {c:PALETTE[2],w:10,pts:[[440,620],[500,580],[560,620],[500,670],[440,620]]}
+  ];
+  const total=S.reduce((n,s)=>n+s.pts.length,0),t0=performance.now(),dur=reduced()?0:2600;
+  const f=n=>{if(!document.body.contains(cv))return;fitCanvas(cv);
+    let k=dur?Math.floor(total*Math.min(1,(n-t0)/dur)):total;
+    paintInk(cv,S.map(s=>{const m=Math.max(0,Math.min(s.pts.length,k));k-=s.pts.length;return m?{c:s.c,w:s.w,p:s.pts.slice(0,m).map(a=>a.join(",")).join(";")}:null}).filter(Boolean));
+    if(n-t0<dur)requestAnimationFrame(f)};
+  requestAnimationFrame(f);
+}
 function home(){
   const hasGame=S&&S.board&&Object.values(S.board).some(t=>!t.used);
   const total=BANK.reduce((n,c)=>n+c.items.length,0);
@@ -536,6 +607,7 @@ function home(){
       <div class="row">
         <a class="btn" href="#setup">${L("ابدأ اللعب مجاناً","Start playing, free")}</a>
         ${hasGame?`<a class="btn soft" href="#play">${L("كمّلوا لعبتكم","Resume your game")}</a>`:""}
+        <a class="btn soft" href="#setup-draw">${L("ارسمها ✏️","Draw It ✏️")}</a>
         <a class="btn soft" href="#join">${L("انضم للغرفة","Join a room")}</a>
       </div>
       <span class="free"><b>${L("مجانية بالكامل","100% free")}</b>${L("بلا دفع وبلا تحميل","No payment, no download")}</span>
@@ -577,6 +649,14 @@ function home(){
     </div>
   </section>
 
+  <section class="s" id="draw-game">
+    <h2>${L("ارسمها","Draw It")} <span class="newpill">${L("جديد","New")}</span></h2>
+    <p class="intro">${L(`لعبة رسم وتخمين من الجوالات. كل واحد يرسم كلمة والباقين يخمّنون، و${ar(WORDS.length)} كلمة فيها من فنجال القهوة لين برج المملكة.`,`A draw-and-guess game played on phones. Each player draws a word while the rest guess, with ${WORDS.length} words from a coffee cup to Kingdom Tower.`)}</p>
+    <div class="drawsec"><div>${rulesHTML()}</div>
+      <div class="paper" style="max-width:420px"><canvas id="demo-cv" aria-label="${L("رسمة مثال","Example drawing")}"></canvas></div></div>
+    <div class="row" style="margin-top:22px"><a class="btn" href="#setup-draw">${L("العبوا ارسمها","Play Draw It")}</a></div>
+  </section>
+
   <section class="s" id="cards">
     <h2>${L("أوراق تقلب الجولة","Cards that flip the round")}</h2>
     <p class="intro">${L("لكل فريق ورقة من كل نوع تُستخدم مرة وحدة. وتحت الخانات مفاجآت: كنزان يضاعفان النقاط، وقنبلة تخصم من الفريق إذا أخطأ.","Each team gets one of each card, once per game. Hidden under the tiles: two treasures that double points and a bomb that costs a wrong answer.")}</p>
@@ -593,6 +673,7 @@ function home(){
        [L("هل لازم أسجّل؟","Do I need to sign up?"),L("لا. تكتب اسمك مرة وينحفظ على جوالك، وصفحة «ملفي» تعرض عدد ألعابك وانتصاراتك على نفس الجهاز.","No. Type your name once and it stays on your phone. «Profile» shows your games and wins on that device.")],
        [L("هل تتكرر الأسئلة؟","Do questions repeat?"),L("اللعبة تتذكر الأسئلة اللي لعبتوها على نفس الجهاز وتقدّم الجديدة أولاً.","The game remembers what you've played on this device and serves new questions first.")],
        [L("وقفنا بنص اللعبة، نقدر نكمّل؟","Can we resume later?"),L("إيه. اللعبة تنحفظ بنقاطها وخاناتها، وتلقون زر «كمّلوا لعبتكم» في الرئيسية.","Yes. The game is saved with scores and tiles; use «Resume your game» on the home page.")],
+       [L("كيف نلعب ارسمها؟","How does Draw It work?"),L("من الرئيسية اضغطوا «ارسمها»، والكل يمسح الـQR. كل دور يرسم واحد من جواله كلمة يختارها من ثلاث، والباقين يكتبون تخمينهم من جوالاتهم. الشاشة الكبيرة تعرض الرسمة والنقاط.","Tap «Draw It» on the home page and everyone scans the QR. Each turn one player draws a word they picked from three, and the others type guesses on their phones. The big screen shows the drawing and scores.")],
        [L("كيف ينتزع الفريق الثاني السؤال؟","How does stealing work?"),L("إذا أخطأ صاحب الدور، يقول الفريق الثاني جوابه قبل كشف الإجابة. إذا طلع صح، ياخذ النقاط.","If the team on turn misses, the other team gives its answer before the reveal. If it's right, they take the points.")]
       ].map(([q,a])=>`<details><summary>${q}</summary><p>${a}</p></details>`).join("")}
     </div>
@@ -615,6 +696,7 @@ function home(){
   app.querySelectorAll("[data-copy]").forEach(b=>b.onclick=()=>{const t=b.dataset.copy,done=()=>{b.textContent=L("تم النسخ ✓","Copied ✓")};
     try{navigator.clipboard.writeText(t).then(done,()=>selectText(b))}catch(e){selectText(b)}});
   document.getElementById("reset").onclick=e=>{save(PK,null);e.target.textContent=L("تم التصفير","Cleared")};
+  demoSketch();
 }
 function selectText(b){const el=b.closest(".ct").querySelector("b");const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r)}
 
@@ -633,7 +715,7 @@ function teamNames(){
 function syncHost(){
   if(!NET.ref)return;
   const live=S&&S.teams&&S.board&&location.hash!=="#setup";
-  const st={uid:FB.uid,as:AS,t:teamNames(),s:live?S.teams.map(x=>x.s):[0,0],turn:live?S.turn:-1,act:NET.act||null,clk:NET.clk||null,over:(S&&S.over)||null,ts:Date.now()};
+  const st={uid:FB.uid,mode:/^#(draw|setup-draw)$/.test(location.hash)?"draw":"board",as:AS,t:teamNames(),s:live?S.teams.map(x=>x.s):[0,0],turn:live?S.turn:-1,act:NET.act||null,clk:NET.clk||null,over:(S&&S.over)||null,ts:Date.now()};
   const key=JSON.stringify({...st,ts:0});if(key===NET.last)return;NET.last=key;
   NET.ref.child("host").set(st).catch(()=>{});
 }
@@ -667,6 +749,8 @@ function fillLate(){
   if(ch){saveAS();syncHost()}
 }
 function onRoomChange(){
+  if(document.getElementById("drawlobby"))renderDrawLobby();
+  if(D&&location.hash==="#draw")renderDrawHost();
   if(Q&&Q.kind==="clock"&&Q.phone&&Q.phase==="ask")renderQ();
   if(document.getElementById("roomsec"))renderRoomSec();
   if(document.getElementById("lobby")){if(S&&S.board)fillLate();renderLobby()}
@@ -760,6 +844,8 @@ function joinView(h){
 }
 function phoneLive(){
   const h=P.host,uid=FB.uid;
+  if(h&&h.mode==="draw"&&P.ref){phoneDraw();return}
+  phoneDrawOff();
   const my=h&&h.as&&typeof h.as==="object"?h.as[uid]:undefined,team=my===0||my===1?my:null;
   if(h&&h.over&&typeof h.over==="object"&&typeof h.over.g==="string"&&team!==null&&P.lastOver!==h.over.g){
     const g=h.over.g,w=h.over.w;P.lastOver=g;
@@ -820,6 +906,7 @@ function setup(){
   const sel=new Set(S&&S.cats?S.cats:[]);
   app.innerHTML=header(false)+`<div class="g"><div class="wrap">
   <form class="setup" id="f">
+    <div class="banner"><span><b>${L("ارسمها","Draw It")}</b> · ${L("لعبة رسم وتخمين من الجوالات","a draw-and-guess game on phones")}</span><a class="btn sm" href="#setup-draw">${L("العبوا ارسمها","Play Draw It")}</a></div>
     <div class="block"><h2>${L("افتحوا الغرفة","Open the room")}</h2>
       <p class="muted">${L("كل الموجودين يصوّرون الـQR بجوالاتهم، وبعدها تقسّمهم الشاشة فريقين بالتساوي. تقدرون تتخطّون هذي الخطوة وتلعبون على الشاشة وحدها.","Everyone scans the QR, then the screen splits them into two even teams. You can skip this and play on the screen alone.")}</p>
       <div id="roomsec" class="roomsec"><p class="note">${L("جاري فتح الغرفة…","Opening the room…")}</p></div></div>
@@ -1104,17 +1191,419 @@ function confetti(){
     if(n-t0<4500)requestAnimationFrame(f);else c.remove()};requestAnimationFrame(f);
 }
 
+/* ---------- ارسمها: بنك الكلمات [عربي, English, [مرادفات]] ---------- */
+const WORDS=[
+ ["فنجال","Coffee cup",["فنجان","فنجال قهوه","cup"]],["دلة","Coffee pot",["دله قهوه","dallah"]],["نخلة","Palm tree",["نخل","palm"]],
+ ["تمر","Dates",["تمره","date"]],["جمل","Camel",["ناقه","بعير"]],["خيمة","Tent",["بيت شعر"]],["صقر","Falcon",["شاهين","hawk"]],
+ ["شماغ","Shemagh",["غتره","ghutra"]],["مبخرة","Incense burner",["بخور","مبخر"]],["كبسة","Kabsa",["رز ولحم"]],["برج المملكة","Kingdom Tower",["برج"]],
+ ["مسجد","Mosque",["جامع"]],["هلال","Crescent",["قمر"]],["فانوس","Lantern",["فانوس رمضان"]],["مسبحة","Prayer beads",["سبحه"]],
+ ["مشلح","Bisht",["بشت"]],["كثبان","Sand dune",["طعس","رمل","dune"]],["بئر","Well",["بير"]],["قمر","Moon",[]],["شمس","Sun",[]],
+ ["نجمة","Star",["نجم"]],["سحابة","Cloud",["غيمه","سحاب"]],["مطر","Rain",[]],["قوس قزح","Rainbow",[]],["بركان","Volcano",[]],
+ ["جبل","Mountain",[]],["شجرة","Tree",[]],["وردة","Flower",["زهره","rose"]],["بحر","Sea",["ocean"]],["سمكة","Fish",["سمك"]],
+ ["حوت","Whale",[]],["قرش","Shark",["سمكه قرش"]],["أخطبوط","Octopus",[]],["سلحفاة","Turtle",["سلحفاه"]],["قطة","Cat",["بسه","قطوه","بس"]],
+ ["كلب","Dog",[]],["أرنب","Rabbit",["bunny"]],["فيل","Elephant",[]],["زرافة","Giraffe",[]],["أسد","Lion",[]],["ثعبان","Snake",["حيه","افعى"]],
+ ["بطريق","Penguin",[]],["فراشة","Butterfly",[]],["نحلة","Bee",[]],["عنكبوت","Spider",[]],["بومة","Owl",[]],["دجاجة","Chicken",["دجاج"]],
+ ["بيضة","Egg",["بيض"]],["حصان","Horse",["خيل"]],["بيتزا","Pizza",[]],["برجر","Burger",["همبرقر","hamburger"]],["آيس كريم","Ice cream",["ايسكريم","بوظه"]],
+ ["كيكة","Cake",["كيك","تورته"]],["موز","Banana",["موزه"]],["تفاحة","Apple",["تفاح"]],["بطيخ","Watermelon",["حبحب"]],["عنب","Grapes",[]],
+ ["فراولة","Strawberry",["فراوله"]],["شاورما","Shawarma",["شاورمه"]],["فشار","Popcorn",["بوب كورن"]],["دونات","Donut",["doughnut"]],
+ ["نظارة","Glasses",["نظاره","نظارات"]],["ساعة","Clock",["watch","ساعه"]],["مفتاح","Key",[]],["قفل","Lock",[]],["مظلة","Umbrella",["شمسيه"]],
+ ["كرسي","Chair",[]],["سرير","Bed",[]],["باب","Door",[]],["شباك","Window",["نافذه"]],["لمبة","Light bulb",["مصباح","bulb","لمبه"]],
+ ["جوال","Phone",["موبايل","هاتف","جوال"]],["لابتوب","Laptop",["كمبيوتر","computer"]],["تلفزيون","TV",["تلفاز","شاشه","television"]],
+ ["كاميرا","Camera",[]],["سماعة","Headphones",["سماعات"]],["مقص","Scissors",[]],["قلم","Pen",["pencil"]],["كتاب","Book",[]],
+ ["شنطة","Bag",["حقيبه","شنطه"]],["حذاء","Shoe",["جزمه","نعال"]],["قبعة","Hat",["كاب","cap"]],["تاج","Crown",[]],["خاتم","Ring",[]],
+ ["هدية","Gift",["present","هديه"]],["بالون","Balloon",[]],["شمعة","Candle",[]],["جرس","Bell",[]],["مرآة","Mirror",["مرايه","مرايا"]],
+ ["فرشاة أسنان","Toothbrush",["فرشه اسنان","فرشاه"]],["ملعقة","Spoon",["ملعقه"]],["سيارة","Car",["سياره"]],["طيارة","Airplane",["طائره","plane"]],
+ ["سفينة","Ship",["قارب","boat"]],["دراجة","Bicycle",["سيكل","bike"]],["قطار","Train",[]],["صاروخ","Rocket",[]],["هليكوبتر","Helicopter",["مروحيه"]],
+ ["باص","Bus",["حافله"]],["بيت","House",["منزل","home"]],["قلعة","Castle",["حصن"]],["جسر","Bridge",["كوبري"]],["منارة","Lighthouse",[]],
+ ["كرة قدم","Football",["كوره","كره","soccer ball","ball"]],["كأس","Trophy",["cup"]],["ميدالية","Medal",[]],["ثلج","Snow",[]],
+ ["رجل ثلج","Snowman",["رجل الثلج"]],["شبح","Ghost",[]],["روبوت","Robot",["رجل آلي"]],["كائن فضائي","Alien",["فضائي"]],["تنين","Dragon",[]],
+ ["قرصان","Pirate",[]],["ديناصور","Dinosaur",[]],["هرم","Pyramid",["اهرامات"]],["برق","Lightning",["صاعقه"]],["نار","Fire",[]],
+ ["قلب","Heart",[]],["عين","Eye",[]],["يد","Hand",["كف"]],["ضرس","Tooth",["سن"]],["عظمة","Bone",[]]
+];
+const wtxt=i=>WORDS[i]?WORDS[i][EN()?1:0]:"";
+const wother=i=>WORDS[i]?WORDS[i][EN()?0:1]:"";
+
+/* ---------- تصحيح التخمين ---------- */
+function normW(s){
+  s=String(s).toLowerCase().replace(/[ً-ْٰـ]/g,"").replace(/[أإآٱ]/g,"ا").replace(/ة/g,"ه").replace(/ى/g,"ي").replace(/ؤ/g,"و").replace(/ئ/g,"ي")
+    .replace(/[^\p{L}\p{N} ]/gu," ").replace(/\s+/g," ").trim();
+  s=s.replace(/^(the|a|an) /,"");
+  return s.split(" ").map(w=>w.length>3&&w.startsWith("ال")?w.slice(2):w).join("");
+}
+function lev(a,b){
+  if(Math.abs(a.length-b.length)>3)return 9;
+  let p=Array.from({length:b.length+1},(_,j)=>j);
+  for(let i=1;i<=a.length;i++){const c=[i];for(let j=1;j<=b.length;j++)c[j]=Math.min(p[j]+1,c[j-1]+1,p[j-1]+(a[i-1]===b[j-1]?0:1));p=c}
+  return p[b.length];
+}
+function judgeW(guess,wid){
+  const g=normW(guess);if(!g||!WORDS[wid])return"no";
+  let close=false;
+  for(const v of [WORDS[wid][0],WORDS[wid][1],...WORDS[wid][2]]){
+    const n=normW(v);if(!n)continue;
+    if(g===n)return"ok";
+    const d=lev(g,n),tol=n.length>=8?2:n.length>=4?1:0;
+    if(d<=tol)return"ok";
+    if(d<=tol+1||(n.length>=3&&g.includes(n)))close=true;
+  }
+  return close?"close":"no";
+}
+
+/* ---------- الوقت والرسم المشترك ---------- */
+const srvNow=()=>Date.now()+(FB.off||0);
+const left=(endsAt)=>Math.max(0,(endsAt||0)-srvNow())/1000;
+const PAPER="#fffdf8";
+const PALETTE=["#24362e","#d9534f","#f0a04b","#f2d16b","#5aa469","#4a90c2","#8a6cc4","#8b5a3c",PAPER];
+const SIZES=[4,10,22];
+function fitCanvas(cv){const r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1,w=Math.max(1,Math.round(r.width*d));if(cv.width!==w){cv.width=w;cv.height=w}}
+function paintInk(cv,list,live){
+  const x=cv.getContext("2d"),W=cv.width,k=W/1000;
+  x.fillStyle=PAPER;x.fillRect(0,0,W,W);x.lineCap="round";x.lineJoin="round";
+  const one=s=>{
+    if(!s||typeof s.p!=="string"||s.p.length>9000)return;
+    const c=PALETTE.includes(s.c)?s.c:PALETTE[0],w=Math.min(60,Math.max(1,+s.w||4))*k;
+    const pts=s.p.split(";").map(a=>a.split(",").map(Number)).filter(a=>a.length===2&&a.every(Number.isFinite));
+    if(!pts.length)return;
+    x.strokeStyle=c;x.fillStyle=c;x.lineWidth=w;
+    if(pts.length===1){x.beginPath();x.arc(pts[0][0]*k,pts[0][1]*k,w/2,0,7);x.fill();return}
+    x.beginPath();x.moveTo(pts[0][0]*k,pts[0][1]*k);for(let i=1;i<pts.length;i++)x.lineTo(pts[i][0]*k,pts[i][1]*k);x.stroke();
+  };
+  list.forEach(one);if(live)one(live);
+}
+function inkViewer(cv,ref){
+  const strokes=new Map();let raf=0;const self={live:null};
+  const draw=()=>{raf=0;fitCanvas(cv);paintInk(cv,[...strokes.keys()].sort().map(k=>strokes.get(k)),self.live&&{c:self.live.c,w:self.live.w,p:self.live.pts.map(a=>a.join(",")).join(";")})};
+  const q=()=>{if(!raf)raf=requestAnimationFrame(draw)};
+  const add=s=>{strokes.set(s.key,s.val());q()},rem=s=>{strokes.delete(s.key);q()};
+  ref.on("child_added",add);ref.on("child_changed",add);ref.on("child_removed",rem);
+  let ro=null;try{ro=new ResizeObserver(q);ro.observe(cv)}catch(e){}
+  q();
+  self.redraw=q;
+  self.stop=()=>{ref.off("child_added",add);ref.off("child_changed",add);ref.off("child_removed",rem);if(ro)ro.disconnect()};
+  return self;
+}
+function inkPad(cv,ref,tool){
+  const v=inkViewer(cv,ref),mine=[];let cur=null,timer=0;
+  cv.style.touchAction="none";
+  const pt=e=>{const r=cv.getBoundingClientRect();return[Math.round(Math.min(1,Math.max(0,(e.clientX-r.left)/r.width))*1000),Math.round(Math.min(1,Math.max(0,(e.clientY-r.top)/r.height))*1000)]};
+  const flush=()=>{timer=0;if(cur)ref.child(cur.key).set({c:cur.c,w:cur.w,p:cur.pts.map(a=>a.join(",")).join(";")}).catch(()=>{})};
+  const later=()=>{if(!timer)timer=setTimeout(flush,90)};
+  const start=p=>{cur={key:ref.push().key,c:tool.c,w:tool.w,pts:[p]};mine.push(cur.key);v.live=cur;v.redraw();later()};
+  const down=e=>{e.preventDefault();try{cv.setPointerCapture(e.pointerId)}catch(x){}start(pt(e))};
+  const move=e=>{if(!cur)return;e.preventDefault();const p=pt(e),l=cur.pts[cur.pts.length-1];
+    if(Math.hypot(p[0]-l[0],p[1]-l[1])<3)return;cur.pts.push(p);
+    if(cur.pts.length>=280){clearTimeout(timer);flush();start(p)}else later();v.redraw()};
+  const up=()=>{if(!cur)return;clearTimeout(timer);flush();cur=null;v.live=null;v.redraw()};
+  cv.addEventListener("pointerdown",down);cv.addEventListener("pointermove",move);
+  ["pointerup","pointercancel","pointerleave"].forEach(t=>cv.addEventListener(t,up));
+  return{
+    undo(){const k=mine.pop();if(k)ref.child(k).remove().catch(()=>{})},
+    clear(){mine.length=0;ref.remove().catch(()=>{})},
+    stop(){v.stop();clearTimeout(timer)}
+  };
+}
+const hintHTML=(lens)=>Array.isArray(lens)?lens.map(n=>`<span class="hw">${"_".repeat(Math.min(20,+n||0)).split("").join(" ")}</span>`).join(`<span class="hgap"></span>`)+`<span class="hn">(${L(`${ar(lens.reduce((a,b)=>a+(+b||0),0))} حروف`,`${lens.reduce((a,b)=>a+(+b||0),0)} letters`)})</span>`:"";
+const lensOf=s=>String(s).trim().split(/\s+/).map(w=>[...w].length);
+const rulesHTML=()=>`<ol class="steps dsteps">
+  <li><b>${L("اختار كلمة من ثلاث","Pick one of three words")}</b><span class="muted">${L("الرسّام وحده يشوفها، وعنده ١٥ ثانية يختار.","Only the artist sees them, with 15 seconds to choose.")}</span></li>
+  <li><b>${L("ارسمها بدون حروف","Draw it, no letters")}</b><span class="muted">${L("لا تكتب الكلمة ولا تهجّيها.","Don't write or spell the word.")}</span></li>
+  <li><b>${L("خمّن قبل الوقت","Guess before time runs out")}</b><span class="muted">${L("٢٠ إلى ١٠٠ نقطة حسب سرعتك، والرسّام ياخذ ٣٠ عن كل واحد يعرفها.","20–100 points by speed; the artist gets 30 for each correct guess.")}</span></li>
+</ol>
+<ul class="checks">
+  <li>${L("كل لفّة، كل واحد يرسم مرة","Each lap, everyone draws once")}</li>
+  <li>${L("نقبل المرادفات والغلطة البسيطة، وبالعربي أو الإنجليزي","Synonyms and small typos count, in Arabic or English")}</li>
+  <li>${L("التخمين الصح ما ينكشف للباقين","Correct guesses stay hidden from others")}</li>
+  <li>${L("خلص الوقت؟ تنكشف الكلمة للكل","Time's up? The word is revealed to all")}</li>
+</ul>`;
+
+/* ---------- المضيف: إعداد ارسمها ---------- */
+let DCFG={laps:1,sec:80};
+function drawSetup(){
+  app.innerHTML=header(false)+`<div class="g"><div class="wrap"><div class="setup">
+    <div class="row" style="justify-content:space-between"><h2 class="dtitle">${L("ارسمها","Draw It")}</h2><a class="btn soft sm" href="#setup">${L("بدالها: لوحة الأسئلة","Switch to the quiz board")}</a></div>
+    <p class="muted" style="max-width:60ch">${L("كل واحد يرسم من جواله، والباقين يخمّنون من جوالاتهم. الشاشة الكبيرة تعرض الرسمة وهي تنرسم والنقاط.","Everyone draws on their phone while the others guess on theirs. The big screen shows the drawing live and the scores.")}</p>
+    <div class="block"><h2>${L("افتحوا الغرفة","Open the room")}</h2><div id="drawlobby" class="roomsec"></div></div>
+    <div class="block"><h2>${L("الإعدادات","Settings")}</h2>
+      <div class="toggles">${[1,2,3].map(n=>`<label class="tog" for="lp${n}"><input type="radio" name="lp" id="lp${n}" value="${n}" ${DCFG.laps===n?"checked":""}> ${L(`${ar(n)} لفّة`,`${n} lap${n>1?"s":""}`)}</label>`).join("")}</div>
+      <div class="toggles">${[60,80,100].map(n=>`<label class="tog" for="sc${n}"><input type="radio" name="sc" id="sc${n}" value="${n}" ${DCFG.sec===n?"checked":""}> ${L(`${ar(n)} ثانية للرسم`,`${n}s to draw`)}</label>`).join("")}</div></div>
+    <div class="block"><h2>${L("كيف نلعب؟","How to play")}</h2>${rulesHTML()}</div>
+    <div class="sticky"><span id="dcnt" class="muted"></span><button class="btn" id="dgo" type="button">${L("ابدأ ارسمها","Start Draw It")}</button></div>
+  </div></div></div>`;
+  bindHeader();
+  document.querySelectorAll("[name=lp]").forEach(r=>r.onchange=()=>DCFG.laps=+r.value);
+  document.querySelectorAll("[name=sc]").forEach(r=>r.onchange=()=>DCFG.sec=+r.value);
+  dgo.onclick=()=>{if(present().length<2)return;DCFG.go=true;location.hash="draw"};
+  hostRoom();renderDrawLobby();
+}
+function renderDrawLobby(){
+  const el=document.getElementById("drawlobby");if(!el)return;
+  const ps=present(),go=document.getElementById("dgo"),cnt=document.getElementById("dcnt");
+  if(go){go.disabled=NET.off||ps.length<2;cnt.textContent=NET.off?"":ps.length<2?L("تحتاجون لاعبين اثنين على الأقل","You need at least 2 players"):L(`جاهزين: ${ar(ps.length)} لاعبين`,`Ready: ${ps.length} players`)}
+  if(NET.off){el.innerHTML=`<p class="note w">${L("ارسمها تحتاج الانضمام بالجوال، وهو متوقف حالياً. تأكدوا من النت وحدّثوا الصفحة.","Draw It needs phone joining, which is off right now. Check the internet and refresh.")}</p>`;return}
+  if(!NET.ref){el.innerHTML=`<p class="note">${L("جاري فتح الغرفة…","Opening the room…")}</p>`;return}
+  el.innerHTML=`${joinBlock()}<p><b>${L("في الغرفة الحين:","In the room now:")} ${ar(ps.length)}</b></p>
+    <div class="pl">${ps.map(p=>`<span class="pchip">${esc(p.name)}</span>`).join("")||`<span class="note">${L("بانتظار أول لاعب…","Waiting for the first player…")}</span>`}</div>`;
+}
+
+/* ---------- المضيف: إدارة اللعبة ---------- */
+let D=null,DT=0;
+function dPush(){
+  if(!D||!NET.ref)return;const t=D.turn||{};
+  present().forEach(p=>{D.names[p.id]=p.name;if(!(p.id in D.scores))D.scores[p.id]=0});
+  NET.ref.child("draw").set({gid:D.gid,phase:D.phase,drawer:t.drawer||null,endsAt:t.endsAt||0,total:t.total||0,
+    hint:D.phase==="draw"?t.hint:null,word:(D.phase==="reveal"||D.phase==="end")&&Number.isInteger(t.word)?t.word:null,
+    solved:t.solved||{},scores:D.scores,names:D.names,turnNo:D.idx+1,turns:D.order.length,feed:D.feed.slice(-8),winner:D.winner||null}).catch(()=>{});
+  renderDrawHost();
+}
+function drawStart(){
+  const ids=present().map(p=>p.id);if(ids.length<2||!NET.ref)return false;
+  let order=[];for(let l=0;l<DCFG.laps;l++)order=order.concat(shuffle(ids));
+  D={gid:"d"+Date.now().toString(36),order,idx:-1,sec:DCFG.sec,scores:{},names:{},used:new Set(),phase:"pick",turn:null,feed:[],winner:null};
+  ids.forEach(id=>D.scores[id]=0);
+  ["ink","guess","fb"].forEach(k=>NET.ref.child(k).remove().catch(()=>{}));
+  D.gref=NET.ref.child("guess");D.gfn=s=>onGuess(s);
+  D.gref.on("child_added",D.gfn);D.gref.on("child_changed",D.gfn);
+  clearInterval(DT);DT=setInterval(drawTick,250);
+  nextTurn();return true;
+}
+function pickWords(n){
+  let pool=WORDS.map((_,i)=>i).filter(i=>!D.used.has(i));if(pool.length<n){D.used.clear();pool=WORDS.map((_,i)=>i)}
+  return shuffle(pool).slice(0,n);
+}
+function nextTurn(){
+  if(!D)return;
+  if(D.pref){D.pref.off();D.pref=null}
+  D.idx++;
+  const here=new Set(present().map(p=>p.id));
+  while(D.idx<D.order.length&&!here.has(D.order[D.idx]))D.idx++;
+  if(D.idx>=D.order.length){drawEnd();return}
+  const drawer=D.order[D.idx],opts=pickWords(3);
+  D.turn={drawer,opts,word:null,solved:{},endsAt:srvNow()+15000,total:15,hint:null};
+  D.phase="pick";D.feed=[];
+  NET.ref.child("ink").remove().catch(()=>{});
+  NET.ref.child("secret/"+drawer).set({opts,pick:null}).catch(()=>{});
+  D.pref=NET.ref.child("secret/"+drawer+"/pick");
+  D.pref.on("value",s=>{const v=s.val();if(D&&D.phase==="pick"&&D.turn.drawer===drawer&&D.turn.opts.includes(v))beginDraw(v)});
+  dPush();
+}
+function beginDraw(wid){
+  if(!D||D.phase!=="pick")return;
+  D.used.add(wid);
+  Object.assign(D.turn,{word:wid,endsAt:srvNow()+D.sec*1000,total:D.sec,hint:{ar:lensOf(WORDS[wid][0]),en:lensOf(WORDS[wid][1])}});
+  D.phase="draw";dPush();
+}
+function reveal(){
+  if(!D)return;
+  if(D.phase==="pick"){nextTurn();return}
+  if(D.phase!=="draw")return;
+  D.phase="reveal";Object.assign(D.turn,{endsAt:srvNow()+6000,total:6});dPush();
+}
+function drawTick(){
+  if(!D)return;const t=D.turn;
+  const here=new Set(present().map(p=>p.id));
+  if(D.phase==="pick"){
+    if(!here.has(t.drawer)){nextTurn();return}
+    if(srvNow()>=t.endsAt){NET.ref.child("secret/"+t.drawer+"/pick").set(t.opts[0]).catch(()=>{});beginDraw(t.opts[0])}
+  }else if(D.phase==="draw"){
+    const guessers=[...here].filter(id=>id!==t.drawer);
+    if(!here.has(t.drawer)||srvNow()>=t.endsAt||(guessers.length&&guessers.every(id=>t.solved[id])))reveal();
+  }else if(D.phase==="reveal"&&srvNow()>=t.endsAt)nextTurn();
+  dTimer();
+}
+function onGuess(snap){
+  if(!D||D.phase!=="draw")return;
+  const uid=snap.key,v=snap.val(),t=D.turn;
+  if(!v||typeof v.g!=="string"||v.n!==D.idx||uid===t.drawer||t.solved[uid])return;
+  if(D.lastK&&D.lastK[uid]===v.k)return;(D.lastK=D.lastK||{})[uid]=v.k;
+  const g=v.g.slice(0,30),name=D.names[uid]||(present().find(p=>p.id===uid)||{}).name||L("لاعب","Player");
+  const r=judgeW(g,t.word),fb=NET.ref.child("fb/"+uid);
+  if(r==="ok"){
+    const pts=20+Math.round(80*left(t.endsAt)/t.total);
+    D.scores[uid]=(D.scores[uid]||0)+pts;D.scores[t.drawer]=(D.scores[t.drawer]||0)+30;
+    t.solved[uid]=pts;D.feed.push({ok:1,n:name});
+    fb.set({r:"ok",p:pts,n:D.idx,t:Date.now()}).catch(()=>{});dPush();
+  }else{
+    fb.set({r,n:D.idx,t:Date.now()}).catch(()=>{});
+    if(r==="no"){D.feed.push({n:name,g});dPush()}
+  }
+}
+function drawEnd(){
+  if(!D)return;
+  if(D.pref){D.pref.off();D.pref=null}
+  const top=Object.entries(D.scores).sort((a,b)=>b[1]-a[1]);
+  D.winner=top.length&&!(top[1]&&top[1][1]===top[0][1])?top[0][0]:null;D.phase="end";
+  if(D.turn)D.turn.endsAt=0;
+  clearInterval(DT);DT=0;
+  bumpStats(d=>{d.hosted=(d.hosted|0)+1;return d});
+  dPush();confetti();
+}
+function drawStop(){
+  clearInterval(DT);DT=0;
+  if(D){if(D.pref)D.pref.off();if(D.gref){D.gref.off("child_added",D.gfn);D.gref.off("child_changed",D.gfn)}if(D.viewer)D.viewer.stop()}
+  D=null;
+  if(NET.ref){NET.ref.child("draw").remove().catch(()=>{});NET.ref.child("ink").remove().catch(()=>{})}
+}
+
+/* ---------- المضيف: الشاشة ---------- */
+function drawHost(){
+  if(!D&&DCFG.go&&NET.ref){DCFG.go=false;drawStart()}
+  if(!D){location.hash="setup-draw";return}
+  app.innerHTML=header(false)+`<div class="g"><div class="wrap">
+    <div class="row" style="justify-content:space-between;margin-bottom:12px"><h2 class="dtitle">${L("ارسمها","Draw It")}</h2>
+      <div class="row"><button class="btn soft sm" id="dqr">${L("انضمّوا بالجوال","Join by phone")}</button><button class="btn soft sm" id="dskip">${L("تخطّي الدور","Skip turn")}</button><button class="btn soft sm" id="dend">${L("إنهاء اللعبة","End game")}</button></div></div>
+    <div class="dgrid">
+      <div class="dmain">
+        <div class="dstatus"><p id="dst" class="q"></p><p id="dhint" class="hint"></p></div>
+        <div class="timer"><span class="n" id="dtn"></span><div class="bar"><i id="dtb"></i></div><span class="note" id="dturn"></span></div>
+        <div class="paper"><canvas id="dcv" aria-label="${L("الرسمة","Drawing")}"></canvas><div class="dover" id="dov" hidden></div></div>
+      </div>
+      <aside class="dside"><h3>${L("النقاط","Scores")}</h3><ol id="dsc" class="dsc"></ol>
+        <h3>${L("التخمينات","Guesses")}</h3><ul id="dfd" class="dfeed"></ul></aside>
+    </div></div></div>`;
+  bindHeader();
+  dqr.onclick=showJoin;dskip.onclick=reveal;dend.onclick=()=>{if(D&&D.phase!=="end")drawEnd()};
+  if(D.viewer)D.viewer.stop();
+  D.viewer=inkViewer(document.getElementById("dcv"),NET.ref.child("ink"));
+  renderDrawHost();
+}
+function dTimer(){
+  if(!D||!D.turn)return;const n=document.getElementById("dtn"),b=document.getElementById("dtb");if(!n)return;
+  const s=left(D.turn.endsAt);n.textContent=D.phase==="end"?"":ar(Math.ceil(s));b.style.width=(D.turn.total?Math.min(100,s/D.turn.total*100):0)+"%";
+}
+function renderDrawHost(){
+  if(!D||location.hash!=="#draw")return;
+  const st=document.getElementById("dst");if(!st)return;
+  const t=D.turn||{},nm=id=>esc(D.names[id]||L("لاعب","Player"));
+  const hint=document.getElementById("dhint"),ov=document.getElementById("dov");
+  dturn.textContent=D.phase==="end"?"":L(`الدور ${ar(D.idx+1)} من ${ar(D.order.length)}`,`Turn ${D.idx+1} of ${D.order.length}`);
+  hint.innerHTML="";ov.hidden=true;
+  if(D.phase==="pick")st.innerHTML=L(`<b>${nm(t.drawer)}</b> يختار كلمة…`,`<b>${nm(t.drawer)}</b> is picking a word…`);
+  if(D.phase==="draw"){st.innerHTML=L(`<b>${nm(t.drawer)}</b> يرسم ✏️`,`<b>${nm(t.drawer)}</b> is drawing ✏️`);hint.innerHTML=hintHTML(t.hint&&t.hint[EN()?"en":"ar"])}
+  if(D.phase==="reveal"){
+    const who=Object.keys(t.solved||{});
+    st.innerHTML=L("انتهى الدور","Turn over");
+    ov.className="dover slim";ov.hidden=false;ov.innerHTML=`<span class="note">${L("الكلمة كانت","The word was")}</span><p class="ans">${esc(wtxt(t.word))}</p><span class="note">${esc(wother(t.word))}</span>
+      <p>${who.length?L(`عرفها: ${who.map(nm).join("، ")}`,`Got it: ${who.map(nm).join(", ")}`):L("ما أحد عرفها 😅","Nobody got it 😅")}</p>`;
+  }
+  if(D.phase==="end"){
+    const top=Object.entries(D.scores).sort((a,b)=>b[1]-a[1]);
+    st.innerHTML=L("نهاية ارسمها","Game over");
+    ov.className="dover";ov.hidden=false;ov.innerHTML=`<p class="ans">${D.winner?L(`الفوز لـ ${nm(D.winner)} 🏆`,`${nm(D.winner)} wins 🏆`):L("تعادل! 🤝","It's a tie! 🤝")}</p>
+      <ol class="podium">${top.slice(0,3).map(([id,s],i)=>`<li><span>${["🥇","🥈","🥉"][i]} ${nm(id)}</span><b>${ar(s)}</b></li>`).join("")}</ol>
+      <div class="row" style="justify-content:center"><a class="btn" href="#setup-draw">${L("لعبة جديدة","New game")}</a><a class="btn soft" href="#home">${L("الرئيسية","Home")}</a></div>`;
+  }
+  const sc=Object.entries(D.scores).sort((a,b)=>b[1]-a[1]);
+  dsc.innerHTML=sc.map(([id,s])=>`<li class="${id===t.drawer&&D.phase!=="end"?"drawing":t.solved&&t.solved[id]?"solved":""}"><span>${id===t.drawer&&D.phase!=="end"?"✏️ ":t.solved&&t.solved[id]?"✓ ":""}${nm(id)}</span><b>${ar(s)}</b></li>`).join("");
+  dfd.innerHTML=D.feed.slice(-8).map(f=>f.ok?`<li class="ok">✓ ${esc(f.n)} ${L("عرفها!","got it!")}</li>`:`<li><b>${esc(f.n)}:</b> ${esc(f.g)}</li>`).join("")||`<li class="note">${L("التخمينات تطلع هنا","Guesses show up here")}</li>`;
+  dTimer();
+}
+
+/* ---------- الجوال: ارسمها ---------- */
+function phoneDrawOn(){
+  if(P.dOn)return;P.dOn=true;P.D=null;P.fb=null;P.sec=null;P.dkey=null;
+  P.dref=P.ref.child("draw");P.dref.on("value",s=>{P.D=s.val();phoneDrawRender()});
+  P.fref=P.ref.child("fb/"+FB.uid);P.fref.on("value",s=>{P.fb=s.val();phoneFb()});
+  P.sref=P.ref.child("secret/"+FB.uid);P.sref.on("value",s=>{P.sec=s.val();P.dkey=null;phoneDrawRender()});
+  P.dti=setInterval(phoneTimer,250);
+}
+function phoneDrawOff(){
+  if(!P.dOn)return;P.dOn=false;
+  [P.dref,P.fref,P.sref].forEach(r=>{try{r.off()}catch(e){}});
+  clearInterval(P.dti);if(P.pv)P.pv.stop();P.pv=null;P.dkey=null;
+}
+function phoneTimer(){
+  const d=P.D,n=document.getElementById("ptn"),b=document.getElementById("ptb");if(!d||!n)return;
+  const s=left(d.endsAt);n.textContent=ar(Math.ceil(s));b.style.width=(d.total?Math.min(100,s/d.total*100):0)+"%";
+}
+function phoneFb(){
+  const el=document.getElementById("gfb"),d=P.D,f=P.fb;if(!el||!d||!f||f.n!==d.turnNo-1||f.t===P.fbT)return;P.fbT=f.t;
+  if(f.r==="close"){el.textContent=L("قريب! 🔥","So close! 🔥");el.className="gfb close"}
+  else if(f.r==="no"){el.textContent=L("لا، جرّب ثاني","Nope, try again");el.className="gfb"}
+}
+function phoneDraw(){phoneDrawOn();phoneDrawRender()}
+function phoneDrawRender(){
+  const pv=document.getElementById("pv");if(!pv||!P.ref||!P.dOn)return;
+  P.tool=P.tool||{c:PALETTE[0],w:SIZES[1]};
+  const d=P.D,uid=FB.uid,me=d&&d.scores?(+d.scores[uid]||0):0;
+  const amDrawer=d&&d.drawer===uid,solved=d&&d.solved&&d.solved[uid];
+  const key=d?[d.gid,d.turnNo,d.phase,amDrawer,!!solved,EN()].join("|"):"none|"+EN()+"|"+Object.keys(P.mates).length;
+  if(key===P.dkey){phoneTimer();return}
+  P.dkey=key;if(P.pv){P.pv.stop();P.pv=null}
+  if(d&&d.phase==="end"&&P.lastDrawG!==d.gid){P.lastDrawG=d.gid;bumpStats(x=>{x.played=(x.played|0)+1;if(d.winner===uid)x.wins=(x.wins|0)+1;return x})}
+  const nm=id=>esc((d&&d.names&&d.names[id])||L("لاعب","Player"));
+  const top=`<div class="row" style="justify-content:space-between"><p class="muted">${esc(P.name)} · <b style="color:var(--ink)">${ar(me)}</b> ${L("نقطة","pts")}</p><button class="linkbtn" id="lv">${L("خروج","Leave")}</button></div>`;
+  const timer=`<div class="timer"><span class="n" id="ptn"></span><div class="bar"><i id="ptb"></i></div></div>`;
+  let body="";
+  if(!d)body=`<div class="big wait"><h2 class="dtitle">${L("ارسمها ✏️","Draw It ✏️")}</h2><p class="muted">${L("بانتظار بداية اللعبة من الشاشة الكبيرة…","Waiting for the big screen to start…")}</p>
+    <div class="pl" style="justify-content:center">${Object.values(P.mates).filter(p=>p&&typeof p.name==="string").map(p=>`<span class="pchip">${esc(p.name.slice(0,20))}</span>`).join("")}</div></div>${rulesHTML()}`;
+  else if(d.phase==="pick"&&amDrawer){
+    const s=P.sec||{},opts=Array.isArray(s.opts)?s.opts.filter(i=>WORDS[i]):[];
+    body=Number.isInteger(s.pick)&&WORDS[s.pick]?`<div class="big act"><p>${L("اخترت","You picked")}</p><p class="w">${esc(wtxt(s.pick))}</p><p>${L("استعد للرسم…","Get ready to draw…")}</p></div>`
+      :`<div class="big act"><h2>${L("دورك ترسم! اختر كلمة","Your turn! Pick a word")}</h2><div class="wopts">${opts.map(i=>`<button class="wopt" data-w="${i}">${esc(wtxt(i))}<small>${esc(wother(i))}</small></button>`).join("")||`<p>${L("جاري تجهيز الكلمات…","Getting words…")}</p>`}</div></div>${timer}`;
+  }
+  else if(d.phase==="pick")body=`<div class="big wait"><p class="muted">${L("الدور على","Up next")}</p><h2>${nm(d.drawer)}</h2><p class="muted">${L("يختار كلمة…","is picking a word…")}</p></div>${timer}`;
+  else if(d.phase==="draw"&&amDrawer){
+    const w=P.sec&&Number.isInteger(P.sec.pick)?P.sec.pick:null;
+    body=`<div class="dword"><span class="note">${L("ارسم:","Draw:")}</span><b>${esc(wtxt(w))}</b><small>${esc(wother(w))}</small></div>${timer}
+      <div class="paper"><canvas id="pcv"></canvas></div>
+      <div class="tools">${PALETTE.map((c,i)=>`<button class="sw${c===PAPER?" er":""}" data-c="${c}" style="background:${c}" aria-label="${c===PAPER?L("ممحاة","Eraser"):L("لون","Color")} ${i+1}" aria-pressed="${P.tool&&P.tool.c===c}"></button>`).join("")}</div>
+      <div class="tools">${SIZES.map((s,i)=>`<button class="sz" data-s="${s}" aria-pressed="${P.tool&&P.tool.w===s}" aria-label="${L("حجم","Size")} ${i+1}"><i style="width:${6+i*7}px;height:${6+i*7}px"></i></button>`).join("")}
+        <button class="btn soft sm" id="pundo">${L("تراجع","Undo")}</button><button class="btn soft sm" id="pclr">${L("مسح الكل","Clear")}</button></div>
+      <p class="note">${L(`عرفها: ${ar(Object.keys(d.solved||{}).length)}`,`Guessed: ${Object.keys(d.solved||{}).length}`)}</p>`;
+  }
+  else if(d.phase==="draw"){
+    const h=d.hint&&d.hint[EN()?"en":"ar"];
+    body=`<p class="muted">${L(`<b style="color:var(--ink)">${nm(d.drawer)}</b> يرسم`,`<b style="color:var(--ink)">${nm(d.drawer)}</b> is drawing`)}</p>${timer}
+      <div class="paper"><canvas id="pcv"></canvas></div>
+      ${solved?`<div class="big" style="background:var(--mint);color:var(--mint-ink)"><h2>${L("✓ عرفتها!","✓ You got it!")}</h2><p>+${ar(d.solved[uid])} ${L("نقطة. انتظر الباقين","points. Wait for the others")}</p></div>`
+        :`<p class="hint">${hintHTML(h)}</p><form class="guess" id="gf"><input id="gin" maxlength="30" autocomplete="off" placeholder="${L("وش الرسمة؟","What is it?")}" aria-label="${L("تخمينك","Your guess")}"><button class="btn" type="submit">${L("خمّن","Guess")}</button></form><p class="gfb" id="gfb" aria-live="polite"></p>`}`;
+  }
+  else if(d.phase==="reveal"){
+    const who=Object.keys(d.solved||{});
+    body=`<div class="big wait"><span class="note">${L("الكلمة كانت","The word was")}</span><p class="ans">${esc(wtxt(d.word))}</p><span class="note">${esc(wother(d.word))}</span>
+      <p>${who.length?L(`عرفها: ${who.map(nm).join("، ")}`,`Got it: ${who.map(nm).join(", ")}`):L("ما أحد عرفها 😅","Nobody got it 😅")}</p></div>
+      <div class="paper"><canvas id="pcv"></canvas></div>`;
+  }
+  else if(d.phase==="end"){
+    const sc=Object.entries(d.scores||{}).sort((a,b)=>b[1]-a[1]),rank=sc.findIndex(e=>e[0]===uid)+1;
+    body=`<div class="big act"><p>${L("نهاية ارسمها","Game over")}</p><p class="w">${d.winner===uid?L("فزت! 🏆","You won! 🏆"):!d.winner&&sc.length&&(+d.scores[uid]||0)===sc[0][1]?L("تعادل! 🤝","It's a tie! 🤝"):rank?L(`مركزك: ${ar(rank)}`,`You placed #${rank}`):""}</p></div>
+      <ol class="dsc">${sc.map(([id,s],i)=>`<li class="${id===uid?"solved":""}"><span>${i<3?["🥇","🥈","🥉"][i]+" ":""}${nm(id)}</span><b>${ar(s)}</b></li>`).join("")}</ol>`;
+  }
+  pv.innerHTML=`<div style="display:grid;gap:14px;padding-block:16px">${top}${body}</div>`;
+  const lv=document.getElementById("lv");
+  if(lv)lv.onclick=()=>{phoneDrawOff();try{P.ref.child("host").off();P.ref.child("players").off();P.me.remove()}catch(e){}P.ref=null;P.host=null;joinView("join")};
+  pv.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>{P.ref.child("secret/"+uid+"/pick").set(+b.dataset.w).catch(()=>{})});
+  const cv=document.getElementById("pcv");
+  if(cv){
+    if(d.phase==="draw"&&amDrawer){
+      P.pv=inkPad(cv,P.ref.child("ink"),P.tool);
+      pv.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{P.tool.c=b.dataset.c;pv.querySelectorAll("[data-c]").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+      pv.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{P.tool.w=+b.dataset.s;pv.querySelectorAll("[data-s]").forEach(x=>x.setAttribute("aria-pressed",x===b))});
+      pundo.onclick=()=>P.pv.undo();pclr.onclick=()=>P.pv.clear();
+    }else P.pv=inkViewer(cv,P.ref.child("ink"));
+  }
+  const gf=document.getElementById("gf");
+  if(gf)gf.onsubmit=e=>{e.preventDefault();const v=gin.value.trim().slice(0,30);if(!v)return;
+    P.ref.child("guess/"+uid).set({g:v,n:d.turnNo-1,k:Date.now()}).catch(()=>{});gin.value="";gin.focus();
+    const f=document.getElementById("gfb");f.textContent=L("انرسل…","Sent…");f.className="gfb"};
+  phoneTimer();
+}
+
 /* ---------- التنقل ---------- */
 function route(){
   closeOv();clearInterval(tick);Q=null;run=null;
   if(NET.act||NET.clk){NET.act=null;NET.clk=null;syncHost()}
   const h=location.hash.slice(1);
+  if(h!=="draw"&&D)drawStop();
+  syncHost();
   if(h==="join"||h.startsWith("join-"))joinView(h);
+  else if(h==="setup-draw")drawSetup();
+  else if(h==="draw")drawHost();
   else if(h==="setup")setup();
   else if(h==="play"){ENTER=true;SHOWN=null;play()}
   else if(h==="account")account();
   else{home();if(h&&document.getElementById(h))document.getElementById(h).scrollIntoView({behavior:reduced()?"auto":"smooth"})}
-  if(["setup","play","account","home",""].includes(h)||h.startsWith("join"))window.scrollTo(0,0);
+  if(["setup","play","account","home","","draw","setup-draw"].includes(h)||h.startsWith("join"))window.scrollTo(0,0);
 }
 window.addEventListener("hashchange",route);route();
 </script>

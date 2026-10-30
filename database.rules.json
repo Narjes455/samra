@@ -2,15 +2,45 @@
   "rules": {
     "rooms": {
       "$code": {
-        ".read": "auth != null",
         "host": {
+          ".read": "auth != null",
           ".write": "auth != null && (!data.exists() || data.child('uid').val() === auth.uid)",
           ".validate": "!newData.exists() || newData.child('uid').val() === auth.uid"
         },
         "players": {
+          ".read": "auth != null",
           "$uid": {
             ".write": "auth != null && auth.uid === $uid",
             ".validate": "!newData.exists() || (newData.child('name').isString() && newData.child('name').val().length <= 20)"
+          }
+        },
+        "draw": {
+          ".read": "auth != null",
+          ".write": "auth != null && root.child('rooms').child($code).child('host/uid').val() === auth.uid"
+        },
+        "ink": {
+          ".read": "auth != null",
+          ".write": "auth != null && (root.child('rooms').child($code).child('draw/drawer').val() === auth.uid || root.child('rooms').child($code).child('host/uid').val() === auth.uid)"
+        },
+        "secret": {
+          "$uid": {
+            ".read": "auth != null && (auth.uid === $uid || root.child('rooms').child($code).child('host/uid').val() === auth.uid)",
+            ".write": "auth != null && (auth.uid === $uid || root.child('rooms').child($code).child('host/uid').val() === auth.uid)"
+          }
+        },
+        "guess": {
+          ".read": "auth != null && root.child('rooms').child($code).child('host/uid').val() === auth.uid",
+          ".write": "auth != null && root.child('rooms').child($code).child('host/uid').val() === auth.uid",
+          "$uid": {
+            ".read": "auth != null && auth.uid === $uid",
+            ".write": "auth != null && auth.uid === $uid",
+            ".validate": "!newData.exists() || (newData.child('g').isString() && newData.child('g').val().length <= 30 && newData.child('n').isNumber())"
+          }
+        },
+        "fb": {
+          ".write": "auth != null && root.child('rooms').child($code).child('host/uid').val() === auth.uid",
+          "$uid": {
+            ".read": "auth != null && auth.uid === $uid"
           }
         }
       }
